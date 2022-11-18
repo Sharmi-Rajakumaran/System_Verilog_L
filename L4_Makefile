@@ -1,0 +1,32 @@
+# Makefile for Deepcopy/Inheritance/Polymorphism - SV Lab04
+
+help:
+        @echo ==============================================================================================================
+        @echo " USAGE                   --  make target                                                                                                                                                 "
+        @echo " clean                   =>  clean the earlier log and intermediate files.                                                                               "
+        @echo " run_sim                 =>  compile & run the simulation in batch mode with test_inheritance.sv file.                   "
+        @echo " run_sim1                =>  compile & run the simulation in batch mode with test_deep_copy.sv file.                             "
+        @echo " run_sim2                =>  compile & run the simulation in batch mode with test_polymorphism.sv file.                  "
+        @echo " run_inherit             =>  clean, compile & run the simulation in batch mode with test_inheritance.sv file.    "
+        @echo " run_copy                =>  clean, compile & run the simulation in batch mode with test_deep_copy.sv file.              "
+        @echo " run_poly                =>  clean, compile & run the simulation in batch mode with test_polymorphism.sv file.   "
+        @echo ==============================================================================================================
+        
+run_inherit: clean run_sim
+
+run_copy   : clean run_sim1
+
+run_poly   : clean run_sim2
+
+run_sim: 
+        qverilog ../tb/test_inheritance.sv
+        
+run_sim1: 
+        qverilog ../tb/test_deep_copy.sv
+        
+run_sim2: 
+        qverilog ../tb/test_polymorphism.sv
+                
+clean:
+        rm -rf transcript* *log* work vsim.wlf fcover* covhtml* mem_cov* 
+        clear 
