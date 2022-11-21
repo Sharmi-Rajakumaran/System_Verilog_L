@@ -1,30 +1,28 @@
 module test_polymorphism;
 
 
-        // In class packet_c
+        class packet_c;
 
-                // In task send
-                        // Display message "Sending base class packet"
-
-
-
-        // Extend badpacket_c from packet_c
-
-                // Override task send
-                        // Display message "Sending derived class packet"
+                task send();
+                        $display("Sending Base Class Packet");
+                endtask: send
 
 
-
-        // Within initial
-                // Create instances for badpacket_c and packet_c 
-
-                // Call send tasks using base and extended class handles
-
-                // Assign extended class handle to base class handle
-
-                // Call send task using base class object
-
-
-
-
+                class badpacket_c extends packet_c
+                        
+                        task send();
+                                $display("Sending Derived class packet");
+                        endtask: send
+        initial
+                begin
+                        badpacket_c bp_h =new;
+                        packet_c pkt_h =new;
+                        
+                        pkt_h.send();
+                        bp_h.send();
+                        
+                        pkt_h = bp_h;
+                        pkt_h.send();
+                end
 endmodule
+
