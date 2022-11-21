@@ -3,7 +3,7 @@ module test_polymorphism;
 
         class packet_c;
 
-                task send();
+                virtual task send();
                         $display("Sending Base Class Packet");
                 endtask: send
 
