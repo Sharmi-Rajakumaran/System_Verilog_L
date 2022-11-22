@@ -1,0 +1,32 @@
+# Makefile for Threads/Mailbox/Semaphore - SV Lab06
+
+help:
+        @echo ==========================================================================================================
+        @echo " USAGE                   --  make target                                                                                                                                         "
+        @echo " clean                   =>  clean the earlier log and intermediate files.                                                                       "
+        @echo " run_sim                 =>  compile & run the simulation in batch mode with test_threads.sv file.                       "
+        @echo " run_sim1                =>  compile & run the simulation in batch mode with test_mailbox.sv.sv file.            "
+        @echo " run_sim2                =>  compile & run the simulation in batch mode with test_semaphore.sv file.                     "
+        @echo " run_thread      =>  clean, compile & run the simulation in batch mode with test_threads.sv file.        "
+        @echo " run_mailbox     =>  clean, compile & run the simulation in batch mode with test_mailbox.sv.sv file.     "
+        @echo " run_sem                 =>  clean, compile & run the simulation in batch mode with test_semaphore.sv file.      "
+        @echo ==========================================================================================================
+        
+
+run_thread  : clean run_sim
+
+run_mailbox : clean run_sim1
+
+run_sem: clean run_sim2
+
+run_sim: 
+        qverilog ../tb/test_threads.sv
+        
+run_sim1: 
+        qverilog ../tb/test_mailbox.sv
+        
+run_sim2: 
+        qverilog ../tb/test_semaphore.sv
+        
+clean:
+        rm -rf transcript* *log* work vsim.wlf fcover* covhtml* mem_cov* 
