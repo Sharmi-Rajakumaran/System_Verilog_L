@@ -35,5 +35,19 @@ module test_trans;
         end
     end
 endmodule 
+
+/*
+# run -all
+# The randomized value of the enum data type rand_oper and alu_sel_in is ARITH and 15
+# The randomized value of the enum data type rand_oper and alu_sel_in is ARITH and 10
+# The randomized value of the enum data type rand_oper and alu_sel_in is SHIFT and  8
+# The randomized value of the enum data type rand_oper and alu_sel_in is ARITH and 12
+# The randomized value of the enum data type rand_oper and alu_sel_in is ARITH and 10
+# The randomized value of the enum data type rand_oper and alu_sel_in is LOGIC and  4
+# The randomized value of the enum data type rand_oper and alu_sel_in is SHIFT and  7
+# The randomized value of the enum data type rand_oper and alu_sel_in is SHIFT and  8
+# The randomized value of the enum data type rand_oper and alu_sel_in is ARITH and 15
+# The randomized value of the enum data type rand_oper and alu_sel_in is SHIFT and  7
+*/
       
     
