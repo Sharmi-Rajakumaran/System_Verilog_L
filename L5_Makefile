@@ -1,0 +1,20 @@
+
+# Makefile for Constraints - SV Lab05
+
+help:
+        @echo =================================================================================
+        @echo " USAGE           --  make target                                                         "
+        @echo " clean           =>  clean the earlier log and intermediate files.               "
+        @echo " run_sim         =>  compile & run the simulation in batch mode.                 "
+        @echo " run_test        =>  clean, compile & run the simulation in batch mode.          " 
+        @echo =================================================================================
+        
+
+run_test: clean run_sim
+
+run_sim: 
+        qverilog ../tb/test_random.sv 
+
+clean:
+        rm -rf transcript* *log* work vsim.wlf fcover* covhtml* mem_cov* 
+        clear  
